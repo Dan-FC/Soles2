@@ -16,6 +16,7 @@ class Publicacion{
 
         ~Publicacion();
         
+        void setMeGusta();
         int getMeGustas();
         void mostrar();
 

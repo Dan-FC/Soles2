@@ -14,13 +14,12 @@ Publicacion::Publicacion(Restaurante _autor, std::string _titulo, std::string _d
     this->descripcion = _desc;
 }
 
-Publicacion::~Publicacion(){
-    autor = "";
-    titulo = "";
-    descripcion = "Publicación borrada.";
-    meGusta = 0;
-}
+Publicacion::~Publicacion(){}
         
+void Publicacion::setMeGusta(int _meGusta){
+    this->meGusta = _meGusta;
+}
+
 int Publicacion::getMeGustas(){
     return meGusta;
 }
