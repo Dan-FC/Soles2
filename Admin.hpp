@@ -8,8 +8,9 @@ private:
     std::vector <std::string> reportes;
 public:
 
-    Admin(const std::vector std<string>& reportes);
+    Admin(const std::vector <std::string>& reportes);
     void bloquearUsuario(Usuario& usuario);
     void borrarPublicacion(Publicacion& publicacion);
+    std::vector<std::string> getReportes(std:string nombreArchivo);
 };
 
