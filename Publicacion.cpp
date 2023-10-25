@@ -25,7 +25,7 @@ int Publicacion::getMeGustas(){
 }
 
 void Publicacion::mostrar(){
-    std::cout << autor << ": "<< endl;
+    std::cout << autor.getNombre() << ": "<< endl;
     std::cout << titulo << endl;
     std::cout << descripcion << endl;
     std::cout << "Me Gusta: " << meGusta << endl;
