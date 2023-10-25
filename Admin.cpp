@@ -3,7 +3,7 @@
 #include <fstream>
 
 Admin::Admin(const std::vector<std::string>& reportes) {
-    this->reportes = reportes;
+    reportes = getReportes("reportes.txt");
 }
 void Admin::bloquearUsuario(Usuario& usuario) {
     usuario.Estado(0);
