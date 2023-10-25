@@ -9,13 +9,31 @@ void Admin::bloquearUsuario(Usuario& usuario) {
     usuario.Estado(0);
 }
 void Admin::borrarPublicacion(Publicacion& publicacion){
-    ~publicacion;
+    delete &publicacion;
 }
+
 std::vector<std::string> getReportes(std:string nombreArchivo){
+    std::vector<std::string> reporte;
+    
+    std::ifstream file(nombreArchivo);
+
+    if (!file.is_open()) {
+        std::cerr << "No se pudo abrir : " << nombreArchivo << std::endl;
+        return reporte;
+    }
+
+    std::string line;
+    
+    while (std::getline(file, line)) {
+        reporte.push_back(line);
+    }
+
+    file.close();
+    
+    return reporte
 
 }
 
 Admin::~Admin() {
-    reportes.clear();
-    reportes.shrink_to_fit();
+
 }
