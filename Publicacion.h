@@ -12,16 +12,12 @@ class Publicacion{
 
     public:
         Publicacion();
-        Publicacion(Restaurante _autor, std::string _titulo, std::string _desc);
+        Publicacion(Restaurante, std::string, std::string);
 
         ~Publicacion();
         
         void setMeGusta();
         int getMeGustas();
         void mostrar();
-
-
-
-
-}
+};
 

@@ -5,7 +5,7 @@
 #include "Publicacion.cpp"
 #include <iostream>
 #include <vector>
-
+#include <limits>
 
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
     Soles soles;
 
     int opcion = 0;
-    // hacer funcion de login o registro mediante un loop
+    // Hacer funcion de login o registro mediante un loop
 
     while(opcion != 3){
         std::cout << "Bienvenido a Soles" << std::endl;
@@ -35,64 +35,79 @@ int main() {
             case 1:
                 // Crear cuenta
                 std::cout << "Ingrese su nombre: ";
-                std::cin >> nombre;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                getline(std::cin, nombre);
+
                 std::cout << "Ingrese su password: ";
-                std::cin >> password;
+                getline(std::cin, password);
+
                 std::cout << "Ingrese su correo: ";
                 std::cin >> correo;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-                // crear usuario Restaurante
-                restaurante.editarPerfil(nombre,correo,password);
+                // Crear usuario Restaurante
+                restaurante.editarPerfil(nombre, correo, password);
 
-                // anadir usuario a soles
+                // Anadir usuario a soles
                 soles.incluir(restaurante);
 
-                // //mostrar usuarios
+                // Mostrar usuarios
+                std::cout << std::endl;
                 soles.print();
                 std::cout << std::endl;
 
                 break;
+
             case 2:
                 // Logearse si ya tiene cuenta creada crear publicacion
-                // ingresar usuario y contrasena
+                // Ingresar usuario y contrasena
 
                 std::cout << "Ingrese su nombre: ";
-                std::cin >> nombre;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                getline(std::cin, nombre);
+
                 std::cout << "Ingrese su password: ";
-                std::cin >> password;
+                getline(std::cin, password);
 
                 // Verificar si ya tiene cuenta creada en el vector de usuarios
                 // si no tiene cuenta creada decirle que cree una cuenta
                 if(soles.validarUsuario(nombre, password)){
                     std::cout << "Usuario encontrado" << std::endl;
+                    std::cout << std::endl;
+
                     // crear publicacion
                     std::cout << "Ingrese el titulo de la publicacion: ";
-                    std::cin >> title;
+                    getline(std::cin, title);
+
                     std::cout << "Ingrese la descripcion de la publicacion: ";
-                    std::cin >> desc;
+                    getline(std::cin, desc);
                     std::cout << std::endl;
+
                     Publicacion p1(nombre, title, desc);
+
                     // anadir publicacion a usuario
                     restaurante.addPublicacion(p1);
+
                     // mostrar publicaciones
                     restaurante.mostrarPublicaciones();
                     std::cout << std::endl;
+
                 } else {
                     std::cout << "Usuario no encontrado" << std::endl;
                     std::cout << std::endl;
                 }
 
                 break;
+
             case 3:
                 // Salir
                 opcion = 3;
                 break;
+
             default:
                 std::cout << "Opcion invalida" << std::endl;
                 break;
         }
     }
-
-
 
 }
