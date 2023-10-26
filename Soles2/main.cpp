@@ -70,12 +70,12 @@ int main() {
                 getline(std::cin, password);
 
                 // Verificar si ya tiene cuenta creada en el vector de usuarios
-                // si no tiene cuenta creada decirle que cree una cuenta
+                // Si no tiene cuenta creada decirle que cree una cuenta
                 if(soles.validarUsuario(nombre, password)){
                     std::cout << "Usuario encontrado" << std::endl;
                     std::cout << std::endl;
 
-                    // crear publicacion
+                    // Crear publicacion
                     std::cout << "Ingrese el titulo de la publicacion: ";
                     getline(std::cin, title);
 
@@ -85,10 +85,10 @@ int main() {
 
                     Publicacion p1(nombre, title, desc);
 
-                    // anadir publicacion a usuario
+                    // Anadir publicacion a usuario
                     restaurante.addPublicacion(p1);
 
-                    // mostrar publicaciones
+                    // Mostrar publicaciones
                     restaurante.mostrarPublicaciones();
                     std::cout << std::endl;
 
